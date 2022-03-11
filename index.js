@@ -7,9 +7,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-// const blogController = require("./controller/blogCont");
+const productController = require("./controller/product_cont");
 
-// app.use("/blog", blogController);
+app.use("/product", productController);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
