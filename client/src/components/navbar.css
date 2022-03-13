@@ -1,6 +1,7 @@
 .navbarCont {
     position: fixed;
     top: 0;
+    left: 10px;
     display: flex;
     border-bottom: 1px solid whitesmoke;
     background-color: white;

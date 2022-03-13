@@ -86,6 +86,10 @@ p {
     padding-bottom: 20px;
 }
 
+.filterBox > input {
+    cursor: pointer;
+}
+
 .filterBox > label {
     font-size: 16px;
     color: gray;

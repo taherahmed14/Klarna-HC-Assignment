@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Filter } from "./filter";
 import { ProductCard } from "./productCard";
 import "./products.css";
 
 export const Products = () => {
-
+    const [data, setData] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -17,10 +18,45 @@ export const Products = () => {
         .then((res) => {
             console.log(res.products);
             setAllProducts(res.products);
+            setData(res.products);
             setLoading(false);
         })
         .catch((e) => console.log(e));
     };
+
+    const handleAll = () => {
+        getProducts();
+    }
+
+    const handleClothing = () => {
+        let filterProducts = data.filter(product => product.category === "Clothing & Apparel");
+        setAllProducts(filterProducts);
+    }
+
+    const handleAccessories = () => {
+        let filterProducts = data.filter(product => product.category === "Computers & Accessories");
+        setAllProducts(filterProducts);
+    }
+
+    const handleBeauty = () => {
+        let filterProducts = data.filter(product => product.category === "Health & Beauty");
+        setAllProducts(filterProducts);
+    } 
+
+    const handleHouseHold = () => {
+        let filterProducts = data.filter(product => product.category === "Household");
+        setAllProducts(filterProducts);
+    } 
+
+    const handleCheckBoxType = (e) => {
+        let filterProducts = data.filter(product => product.pro_type === e.target.value);
+        setAllProducts(filterProducts);
+    }
+
+    const handleCheckBoxDiscount = (e) => {
+        let filterProducts = data.filter(product => product.featured === e.target.value);
+        setAllProducts(filterProducts);
+    }
 
     return(
         <div>
@@ -28,35 +64,9 @@ export const Products = () => {
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
 
             <div id="container">
-                <div id="filterCont">
-                    <div className="categoryBox">
-                        <h3>Categories</h3>
-                        <button>All</button>
-                        <button>Clothing & Apparel</button>
-                        <button>Computers & Accessories</button>
-                        <button>Health & Beauty</button>
-                        <button>Household</button>
-                    </div>
-
-                    <div className="filterBox">
-                        <h3>Filter</h3>
-                        <h4>Type</h4>
-                        <input type="checkbox" />
-                        <label>Only Coupons</label> <br/>
-                        <input type="checkbox" />
-                        <label>Exclusives</label> <br/>
-                        <input type="checkbox" />
-                        <label>BOGO and more</label>
-                    </div>
-
-                    <div className="filterBox">
-                        <h4>Discount</h4>
-                        <input type="checkbox" />
-                        <label>0-49% off</label> <br/>
-                        <input type="checkbox" />
-                        <label>50-80% off</label> <br/>
-                    </div>
-                </div>
+                <Filter handleCheckBoxDiscount={handleCheckBoxDiscount} handleCheckBoxType={handleCheckBoxType}
+                    handleAll={handleAll} handleClothing={handleClothing} handleAccessories={handleAccessories}
+                    handleBeauty={handleBeauty} handleHouseHold={handleHouseHold} />
                 <div id="productCont">
                     {loading ? "Loading..." : 
                     <div>
