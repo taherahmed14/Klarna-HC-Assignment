@@ -20,7 +20,7 @@ export const ProductDetail = () => {
 
     const getProduct = () => {
         dispatch(setFindIdLoading());
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`/product/${id}`)
         .then((d) => d.json())
         .then((res) => {
             console.log(res.product);

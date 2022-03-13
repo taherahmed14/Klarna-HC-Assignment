@@ -21,7 +21,7 @@ export const Products = () => {
 
     const getProducts = () => {
         dispatch(setLoading());
-        fetch("http://localhost:5000/product")
+        fetch("/product")
         .then((d) => d.json())
         .then((res) => {
             console.log(res.products);
