@@ -16,9 +16,9 @@ p {
 }
 
 #filterCont {
-    border: 1px solid green;
     height: 200px;
-    width: 30%;
+    width: 25%;
+    padding-left: 50px;
 }
 
 #productCont {
@@ -61,4 +61,32 @@ p {
     font-size: 30px;
     font-weight: 800;
     color: white;
+}
+
+.categoryBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-bottom: 1px solid rgb(187, 183, 183);
+}
+
+.categoryBox > button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+    text-align: left;
+    padding-bottom: 15px;
+}
+
+.filterBox {
+    text-align: left;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+}
+
+.filterBox > label {
+    font-size: 16px;
+    color: gray;
 }

@@ -28,7 +28,35 @@ export const Products = () => {
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
 
             <div id="container">
-                <div id="filterCont"></div>
+                <div id="filterCont">
+                    <div className="categoryBox">
+                        <h3>Categories</h3>
+                        <button>All</button>
+                        <button>Clothing & Apparel</button>
+                        <button>Computers & Accessories</button>
+                        <button>Health & Beauty</button>
+                        <button>Household</button>
+                    </div>
+
+                    <div className="filterBox">
+                        <h3>Filter</h3>
+                        <h4>Type</h4>
+                        <input type="checkbox" />
+                        <label>Only Coupons</label> <br/>
+                        <input type="checkbox" />
+                        <label>Exclusives</label> <br/>
+                        <input type="checkbox" />
+                        <label>BOGO and more</label>
+                    </div>
+
+                    <div className="filterBox">
+                        <h4>Discount</h4>
+                        <input type="checkbox" />
+                        <label>0-49% off</label> <br/>
+                        <input type="checkbox" />
+                        <label>50-80% off</label> <br/>
+                    </div>
+                </div>
                 <div id="productCont">
                     {loading ? "Loading..." : 
                     <div>
