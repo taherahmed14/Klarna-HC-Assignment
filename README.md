@@ -21,4 +21,4 @@
 # Features added -
 
 - Filter options
-- View the product detail
+- View product detail
