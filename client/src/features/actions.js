@@ -1,5 +1,4 @@
-import { FILTER_ACCESSORIES, FILTER_BEAUTY, FILTER_CLOTHING, FILTER_DISCOUNT, FILTER_HOUSEHOLD, FILTER_TYPE, PRODUCT_ERROR, PRODUCT_LOADING, PRODUCT_SUCCESS } from "./actionType"
-
+import { FILTER_ACCESSORIES, FILTER_BEAUTY, FILTER_CLOTHING, FILTER_DISCOUNT, FILTER_HOUSEHOLD, FILTER_TYPE, PRODUCT_ERROR, PRODUCT_ID_ERROR, PRODUCT_ID_LOADING, PRODUCT_ID_SUCCESS, PRODUCT_LOADING, PRODUCT_SUCCESS } from "./actionType"
 
 export const setLoading = () => {
     return {
@@ -61,3 +60,24 @@ export const setFilterDiscount = (data) => {
         payload: data
     }
 }
+
+export const setFindIdLoading = () => {
+    return {
+        type: PRODUCT_ID_LOADING
+    }
+}
+
+export const setFindIdSuccess = (data) => {
+    return {
+        type: PRODUCT_ID_SUCCESS,
+        payload: data
+    }
+}
+
+export const setFindIdError = () => {
+    return {
+        type: PRODUCT_ID_ERROR
+    }
+}
+
+

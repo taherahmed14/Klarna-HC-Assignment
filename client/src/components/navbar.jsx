@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 export const Navbar = () => {
@@ -5,7 +6,9 @@ export const Navbar = () => {
     return(
         <div>
             <div className="navbarCont">
-                <img className="logo" src="klarna_logo.png" alt="logo" />
+                <Link to={'/'}>
+                    <img className="logo" src="klarna_logo.png" alt="logo" />
+                </Link>
                 <div className="navDetails">
                     <div>Shop</div>
                     <div>How it works</div>

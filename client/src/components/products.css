@@ -29,11 +29,12 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 23%);
     grid-gap: 2%;
-    grid-row-gap: 3%;
+    grid-row-gap: 2%;
 }
 
 .productCard {
     cursor: pointer;
+    height: 300px;
 }
 
 .productCard > img {
@@ -50,6 +51,7 @@ p {
     font-size: 18px;
     font-weight: 600;
     padding-left: 10px;
+    color: black;
 }
 
 .productDesc {
@@ -58,6 +60,7 @@ p {
     font-size: 16px;
     text-align: left;
     padding-left: 10px;
+    color: black;
 }
 
 .productDiscount {
@@ -99,3 +102,49 @@ p {
     font-size: 16px;
     color: gray;
 }
+
+.productDetail {
+    margin: auto;
+    margin-top: 100px;
+    width: 500px;
+    height: 600px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.productDetail > img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.productDetailTitle {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 600;
+    padding-left: 10px;
+    color: black;
+}
+
+.productDetailDesc {
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+    color: black;
+}
+
+.shopDealBtn {
+    width: 95%;
+    margin-top: 15px;
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.shopDealBtn:hover {
+    opacity: 80%;
+}
+
