@@ -11,33 +11,38 @@ p {
 }
 
 #container {
-    height: 200px;
     display: flex;
+    margin-bottom: 200px;
 }
 
 #filterCont {
-    height: 200px;
-    width: 25%;
+    width: 23%;
     padding-left: 50px;
 }
 
 #productCont {
     width: 70%;
+    padding-left: 20px;
 }
 
 .productList {
     display: grid;
     grid-template-columns: repeat(4, 23%);
     grid-gap: 2%;
+    grid-row-gap: 3%;
 }
 
 .productCard {
     cursor: pointer;
 }
 
-.productCard img {
+.productCard > img {
     width: 230px;
     border-radius: 25px;
+}
+
+.productCard > img:hover {
+    border: 1px solid rgb(34, 238, 170);
 }
 
 .productTitle {
@@ -82,7 +87,7 @@ p {
 
 .filterBox {
     text-align: left;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(173, 169, 169);
     padding-bottom: 20px;
 }
 

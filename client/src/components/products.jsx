@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setError, setFilterAccessories, setFilterBeauty, setFilterClothing, setFilterDiscount, setFilterHousehold, setFilterType, setLoading, setSuccess } from "../features/actions";
 import { Filter } from "./filter";
 import { ProductCard } from "./productCard";
 import "./products.css";
 
 export const Products = () => {
-    const [data, setData] = useState([]);
-    const [allProducts, setAllProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+    const { loading, allProducts, data } = useSelector((state) => ({
+        loading: state.loading,
+        allProducts: state.allProducts,
+        data: state.data,
+    }));
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         getProducts();
     }, []);
 
     const getProducts = () => {
+        dispatch(setLoading());
         fetch("http://localhost:5000/product")
         .then((d) => d.json())
         .then((res) => {
             console.log(res.products);
-            setAllProducts(res.products);
-            setData(res.products);
-            setLoading(false);
+            dispatch(setSuccess(res.products));
         })
-        .catch((e) => console.log(e));
+        .catch((e) => dispatch(setError()));
     };
 
     const handleAll = () => {
@@ -30,37 +36,37 @@ export const Products = () => {
 
     const handleClothing = () => {
         let filterProducts = data.filter(product => product.category === "Clothing & Apparel");
-        setAllProducts(filterProducts);
+        dispatch(setFilterClothing(filterProducts));
     }
 
     const handleAccessories = () => {
         let filterProducts = data.filter(product => product.category === "Computers & Accessories");
-        setAllProducts(filterProducts);
+        dispatch(setFilterAccessories(filterProducts));
     }
 
     const handleBeauty = () => {
         let filterProducts = data.filter(product => product.category === "Health & Beauty");
-        setAllProducts(filterProducts);
+        dispatch(setFilterBeauty(filterProducts));
     } 
 
     const handleHouseHold = () => {
         let filterProducts = data.filter(product => product.category === "Household");
-        setAllProducts(filterProducts);
+        dispatch(setFilterHousehold(filterProducts));
     } 
 
     const handleCheckBoxType = (e) => {
         let filterProducts = data.filter(product => product.pro_type === e.target.value);
-        setAllProducts(filterProducts);
+        dispatch(setFilterType(filterProducts));
     }
 
     const handleCheckBoxDiscount = (e) => {
         let filterProducts = data.filter(product => product.featured === e.target.value);
-        setAllProducts(filterProducts);
+        dispatch(setFilterDiscount(filterProducts));
     }
 
     return(
         <div>
-            <h1>All deals ans coupons.</h1>
+            <h1>All deals and coupons.</h1>
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
 
             <div id="container">
@@ -68,20 +74,14 @@ export const Products = () => {
                     handleAll={handleAll} handleClothing={handleClothing} handleAccessories={handleAccessories}
                     handleBeauty={handleBeauty} handleHouseHold={handleHouseHold} />
                 <div id="productCont">
+                    {loading ? "Loading..." : 
                     <div>
                         <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
                         <div className="productList">
                             {allProducts.map((e) => ( <ProductCard key={e._id} product={e} /> ))}
                         </div>
                     </div>
-                    {/* {loading ? "Loading..." : 
-                    <div>
-                        <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
-                        <div className="productList">
-                            {allProducts.map((e) => ( <ProductCard key={e._id} product={e} /> ))}
-                        </div>
-                    </div>
-                    }  */}
+                    } 
                 </div>
             </div>
         </div>
