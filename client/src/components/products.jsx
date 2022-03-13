@@ -34,7 +34,7 @@ export const Products = () => {
                     <div>
                         <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
                         <div className="productList">
-                            {allProducts.map((e) => ( <ProductCard key={e.id} product={e} /> ))}
+                            {allProducts.map((e) => ( <ProductCard key={e._id} product={e} /> ))}
                         </div>
                     </div>
                     } 
