@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setError, setFilterAccessories, setFilterBeauty, setFilterClothing, setFilterDiscount, setFilterHousehold, setFilterType, setLoading, setSuccess } from "../features/actions";
 import { Filter } from "./filter";
@@ -74,7 +74,7 @@ export const Products = () => {
                     handleAll={handleAll} handleClothing={handleClothing} handleAccessories={handleAccessories}
                     handleBeauty={handleBeauty} handleHouseHold={handleHouseHold} />
                 <div id="productCont">
-                    {loading ? "Loading..." : 
+                    {loading ? <img src="loading-icon.jpg" alt="loading" /> : 
                     <div>
                         <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
                         <div className="productList">
