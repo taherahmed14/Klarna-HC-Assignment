@@ -68,14 +68,20 @@ export const Products = () => {
                     handleAll={handleAll} handleClothing={handleClothing} handleAccessories={handleAccessories}
                     handleBeauty={handleBeauty} handleHouseHold={handleHouseHold} />
                 <div id="productCont">
-                    {loading ? "Loading..." : 
                     <div>
                         <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
                         <div className="productList">
                             {allProducts.map((e) => ( <ProductCard key={e._id} product={e} /> ))}
                         </div>
                     </div>
-                    } 
+                    {/* {loading ? "Loading..." : 
+                    <div>
+                        <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
+                        <div className="productList">
+                            {allProducts.map((e) => ( <ProductCard key={e._id} product={e} /> ))}
+                        </div>
+                    </div>
+                    }  */}
                 </div>
             </div>
         </div>
