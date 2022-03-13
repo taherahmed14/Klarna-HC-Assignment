@@ -74,6 +74,7 @@ export const Products = () => {
                     handleAll={handleAll} handleClothing={handleClothing} handleAccessories={handleAccessories}
                     handleBeauty={handleBeauty} handleHouseHold={handleHouseHold} />
                 <div id="productCont">
+                    <input type='search' className="searchBox" placeholder="Search" />
                     {loading ? <img src="loading-icon.jpg" alt="loading" /> : 
                     <div>
                         <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>

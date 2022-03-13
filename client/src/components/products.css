@@ -12,7 +12,7 @@ p {
 
 #container {
     display: flex;
-    margin-bottom: 200px;
+    margin: 50px 0 200px 0;
 }
 
 #filterCont {
@@ -146,5 +146,16 @@ p {
 
 .shopDealBtn:hover {
     opacity: 80%;
+}
+
+.searchBox {
+    width: 100%;
+    border: none;
+    padding: 15px 15px;
+    border-bottom: 1px solid gray;
+}
+
+.searchBox:focus {
+    outline: none;
 }
 
