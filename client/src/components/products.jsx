@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./products.css";
 
 export const Products = () => {
 
@@ -25,7 +25,13 @@ export const Products = () => {
 
     return(
         <div>
-            
+            <h1>All deals ans coupons.</h1>
+            <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
+
+            <div id="container">
+                <div id="filterCont"></div>
+                <div id="productCont"></div>
+            </div>
         </div>
     )
 };
