@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ProductCard } from "./productCard";
 import "./products.css";
 
 export const Products = () => {
@@ -21,8 +22,6 @@ export const Products = () => {
         .catch((e) => console.log(e));
     };
 
-    //console.log(allProducts[0]);
-
     return(
         <div>
             <h1>All deals ans coupons.</h1>
@@ -30,7 +29,16 @@ export const Products = () => {
 
             <div id="container">
                 <div id="filterCont"></div>
-                <div id="productCont"></div>
+                <div id="productCont">
+                    {loading ? "Loading..." : 
+                    <div>
+                        <h3 style={{ textAlign: "left", padding: "10px" }}>{allProducts.length} deals</h3>
+                        <div className="productList">
+                            {allProducts.map((e) => ( <ProductCard key={e.id} product={e} /> ))}
+                        </div>
+                    </div>
+                    } 
+                </div>
             </div>
         </div>
     )

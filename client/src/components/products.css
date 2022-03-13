@@ -11,7 +11,6 @@ p {
 }
 
 #container {
-    border: 1px solid blue;
     height: 200px;
     display: flex;
 }
@@ -23,7 +22,43 @@ p {
 }
 
 #productCont {
-    border: 1px solid red;
-    height: 200px;
     width: 70%;
+}
+
+.productList {
+    display: grid;
+    grid-template-columns: repeat(4, 23%);
+    grid-gap: 2%;
+}
+
+.productCard {
+    cursor: pointer;
+}
+
+.productCard img {
+    width: 230px;
+    border-radius: 25px;
+}
+
+.productTitle {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.productDesc {
+    overflow: hidden;
+    height: 20px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.productDiscount {
+    position: absolute;
+    margin: 160px 0 0 20px;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
 }
